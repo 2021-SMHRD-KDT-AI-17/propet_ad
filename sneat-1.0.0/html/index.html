@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+
+<!-- =========================================================
+* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
+==============================================================
+
+* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
+* Created by: ThemeSelection
+* License: You must have a valid license purchased in order to legally use the theme for your project.
+* Copyright ThemeSelection (https://themeselection.com)
+
+=========================================================
+-->
+<!-- beautify ignore:start -->
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-static-path="../static/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../static/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../static/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../static/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../static/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../static/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../static/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="../static/vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="../static/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../static/js/config.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="{{ url_for('index') }}" class="app-brand-link">
+              <span class="app-brand-logo demo">
+                <img src="../static/img/logos/logo3.png" width="150" />
+              </span>
+            </a>
+          </div>
+          <div class="menu-inner-shadow"></div>
+          <ul class="menu-inner py-1">
+            <!-- Dashboard -->
+            <li class="menu-item active">
+              <a href="index.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Dashboard</div>
+              </a>
+            </li>
+
+            <!-- management -->
+            <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">Management</span>
+            </li>
+            <li class="menu-item">
+              <a href="{{ url_for('basic') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-list-check"></i>
+                <div data-i18n="Basic">Questions table</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <div data-i18n="Account Settings">User Page</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="{{ url_for('user_list') }}" class="menu-link">
+                    <div data-i18n="Basic">User list</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <div data-i18n="Account Settings">Manager Page</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="{{ url_for('account') }}" class="menu-link">
+                    <div data-i18n="Account">Account</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{{ url_for('notifications') }}" class="menu-link">
+                    <div data-i18n="Notifications">Notifications</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!-- Components -->
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
+            <!-- Cards -->
+            <li class="menu-item">
+              <a href="{{ url_for('login') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-log-out-circle"></i>
+                <div data-i18n="Basic">Logout</div>
+              </a>
+            </li>
+        </aside>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <div class="row">
+                <!-- Total Revenue -->
+                <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
+                  <div class="card">
+                    <div class="row row-bordered g-0">
+                      <div class="col-md-8">
+                        <div class="card">
+                          <h5 class="card-header fw-semibold">응답, 미응답 질문</h5>
+                          <div class="table-responsive text-nowrap">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>Questions</th>
+                                  <th>Users</th>
+                                  <th>Status</th>
+                                  <th>Actions</th>
+                                </tr>
+                              </thead>
+                              <tbody class="table-border-bottom-0">
+                                <tr>
+                                  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>고양이가 응가를 못해요</strong></td>
+                                  <td>
+                                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                      <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Lilian Fuller"
+                                      >
+                                        <img src="../static/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                                      </li>
+                                      <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Sophia Wilkerson"
+                                      >
+                                        <img src="../static/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
+                                      </li>
+                                      <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Christina Parker"
+                                      >
+                                        <img src="../static/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
+                                      </li>
+                                    </ul>
+                                  </td>
+                                  <td><span class="badge bg-label-warning me-1">updating</span></td>
+                                  <td>
+                                    <div class="dropdown">
+                                      <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="javascript:void(0);"
+                                          ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                                        >
+                                        <a class="dropdown-item" href="javascript:void(0);"
+                                          ><i class="bx bx-trash me-1"></i> Delete</a
+                                        >
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><i class="fab fa-react fa-lg text-info me-3"></i> <strong>중성화는 언제해요?</strong></td>
+                                  <td>
+                                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                      <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Lilian Fuller"
+                                      >
+                                        <img src="../static/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                                      </li>
+                                      <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Sophia Wilkerson"
+                                      >
+                                        <img src="../static/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
+                                      </li>
+                                      <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Christina Parker"
+                                      >
+                                        <img src="../static/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
+                                      </li>
+                                    </ul>
+                                  </td>
+                                  <td><span class="badge bg-label-info me-1">Completed</span></td>
+                                  <td>
+                                    <div class="dropdown">
+                                      <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="javascript:void(0);"
+                                          ><i class="bx bx-edit-alt me-2"></i> Edit</a
+                                        >
+                                        <a class="dropdown-item" href="javascript:void(0);"
+                                          ><i class="bx bx-trash me-2"></i> Delete</a
+                                        >
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><i class="fab fa-vuejs fa-lg text-success me-3"></i> <strong>강아지가 토를 해요</strong></td>
+                                  <td>
+                                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                      <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Lilian Fuller"
+                                      >
+                                        <img src="../static/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                                      </li>
+                                      <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Sophia Wilkerson"
+                                      >
+                                        <img src="../static/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
+                                      </li>
+                                      <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Christina Parker"
+                                      >
+                                        <img src="../static/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
+                                      </li>
+                                    </ul>
+                                  </td>
+                                  <td><span class="badge bg-label-danger me-1">incomplete</span></td>
+                                  <td>
+                                    <div class="dropdown">
+                                      <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="javascript:void(0);"
+                                          ><i class="bx bx-edit-alt me-2"></i> Edit</a
+                                        >
+                                        <a class="dropdown-item" href="javascript:void(0);"
+                                          ><i class="bx bx-trash me-2"></i> Delete</a
+                                        >
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>우리집 고양이 츄르를 좋아해</strong>
+                                  </td>
+                                  <td>
+                                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                      <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Lilian Fuller"
+                                      >
+                                        <img src="../static/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                                      </li>
+                                      <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Sophia Wilkerson"
+                                      >
+                                        <img src="../static/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
+                                      </li>
+                                      <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Christina Parker"
+                                      >
+                                        <img src="../static/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
+                                      </li>
+                                    </ul>
+                                  </td>
+                                  <td><span class="badge bg-label-danger me-1">incomplete</span></td>
+                                  <td>
+                                    <div class="dropdown">
+                                      <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="javascript:void(0);"
+                                          ><i class="bx bx-edit-alt me-2"></i> Edit</a
+                                        >
+                                        <a class="dropdown-item" href="javascript:void(0);"
+                                          ><i class="bx bx-trash me-2"></i> Delete</a
+                                        >
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>강아지 뱃살이 너무 쪄요</strong>
+                                  </td>
+                                  <td>
+                                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                      <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Lilian Fuller"
+                                      >
+                                        <img src="../static/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                                      </li>
+                                      <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Sophia Wilkerson"
+                                      >
+                                        <img src="../static/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
+                                      </li>
+                                      <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Christina Parker"
+                                      >
+                                        <img src="../static/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
+                                      </li>
+                                    </ul>
+                                  </td>
+                                  <td><span class="badge bg-label-info me-1">Completed</span></td>
+                                  <td>
+                                    <div class="dropdown">
+                                      <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="javascript:void(0);"
+                                          ><i class="bx bx-edit-alt me-2"></i> Edit</a
+                                        >
+                                        <a class="dropdown-item" href="javascript:void(0);"
+                                          ><i class="bx bx-trash me-2"></i> Delete</a
+                                        >
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <div class="col-md-4">
+                        <div class="card-body">
+                          <div class="text-center">
+                            <div class="dropdown">
+                              <button
+                                class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                                type="button"
+                                id="growthReportId"
+                                data-bs-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                              >
+                                2024
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId">
+                                <a class="dropdown-item" href="javascript:void(0);">2024</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="growthChart"></div>
+                        <div class="text-center fw-semibold pt-3 mb-2">질문 해결률</div>
+
+                        <div class="d-flex px-xxl-4 px-lg-2 p-4 gap-xxl-3 gap-lg-1 gap-3 justify-content-between">
+                          <div class="d-flex">
+                            <div class="me-2">
+                              <span class="badge bg-label-info p-2"><i class="bx bx-user-check"></i></span>
+                            </div>
+                            <div class="d-flex flex-column">
+                              <small>Complete</small>
+                              <h6 class="mb-0">78</h6>
+                            </div>
+                          </div>
+                          <div class="d-flex">
+                            <div class="me-2">
+                              <span class="badge bg-label-danger p-2"><i class="bx bx-user-x"></i></span>
+                            </div>
+                            <div class="d-flex flex-column">
+                              <small>Incomplete</small>
+                              <h6 class="mb-0">22</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--/ 미응답 끝 -->
+                <div class="col-12 col-md-8 col-lg-4 order-3 order-md-2">
+                  <div class="row">
+                    <div class="col-6 mb-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="card-title d-flex align-items-start justify-content-between">
+                            <div class="avatar flex-shrink-0">
+                              <div class="spinner-grow text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                              </div>
+                            </div>
+                            <div class="dropdown">
+                              <button
+                                class="btn p-0"
+                                type="button"
+                                id="cardOpt4"
+                                data-bs-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                              >
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
+                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                              </div>
+                            </div>
+                          </div>
+                          <span class="fw-semibold d-block mb-1">가입자 수</span>
+                          <h3 class="card-title text-nowrap mb-2">1,022</h3>
+                          <small class="text-primary fw-semibold"><i class="bx bx-up-arrow-alt"></i> +14.82%</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="card-title d-flex align-items-start justify-content-between">
+                            <div class="avatar flex-shrink-0">
+                              <div class="spinner-grow text-success" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                              </div>
+                            </div>
+                            <div class="dropdown">
+                              <button
+                                class="btn p-0"
+                                type="button"
+                                id="cardOpt1"
+                                data-bs-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                              >
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardOpt1">
+                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                              </div>
+                            </div>
+                          </div>
+                          <span class="fw-semibold d-block mb-1">방문자 수</span>
+                          <h3 class="card-title mb-2">14,857</h3>
+                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.14%</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 mb-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
+                            <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
+                              <div class="card-title">
+                                <h5 class="fw-semibold text-nowrap mb-2">가입자 수 추이</h5>
+                                <span class="badge bg-label-info rounded-pill">Year 2024</span>
+                              </div>
+                              <div class="mt-sm-auto">
+                                <small class="text-info text-nowrap fw-semibold"
+                                  ><i class="bx bx-chevron-up"></i> 68.2%</small
+                                >
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <span class="fw-semibold text-muted">전월 대비</span>
+                                  <h6 class="mb-0">+ 82</h6>
+                                </div>
+                              </div>
+                            </div>
+                            <div id="profileReportChart"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <!-- Order Statistics -->
+                <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
+                  <div class="card h-100">
+                    <div class="card-header">
+                      <h5 class="card-title m-0 fw-semibold">상품별 카테고리 순위</h5>
+                    </div>
+                    <ul class="nav nav-pills justify-content-center" role="tablist">
+                      <li class="nav-item">
+                        <button type="button" class="nav-link active fw-semibold" role="tab" data-bs-toggle="tab" data-bs-target="#navs-tabs-line-card-feed" aria-controls="navs-tabs-line-card-feed" aria-selected="true">
+                          사료
+                        </button>
+                      </li>
+                      <li class="nav-item">
+                        <button type="button" class="nav-link fw-semibold" role="tab" data-bs-toggle="tab" data-bs-target="#navs-tabs-line-card-snack" aria-controls="navs-tabs-line-card-snack" aria-selected="false">
+                          간식
+                        </button>
+                      </li>
+                      <li class="nav-item">
+                        <button type="button" class="nav-link fw-semibold" role="tab" data-bs-toggle="tab" data-bs-target="#navs-tabs-line-card-nutrients" aria-controls="navs-tabs-line-card-nutrients" aria-selected="false">
+                          영양제
+                        </button>
+                      </li>
+                    </ul>
+                    <div class="card-body">
+                      <div class="tab-content p-0">
+                        <div class="tab-pane fade show active" id="navs-tabs-line-card-feed" role="tabpanel">
+                          <ul class="p-0 m-0">
+                            <li class="d-flex mb-4 pb-1">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-primary"><i class="ti ti-square-rounded-chevron-up"></i></span>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <h6 class="mb-0 fw-semibold">강아지 사료</h6>
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0">521</h6>
+                                  <span class="text-muted">번 검색</span>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="d-flex mb-4 pb-1">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-info"><i class="ti ti-square-rounded-chevron-up"></i></span>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <small class="text-muted d-block mb-1">2nd</small>
+                                  <h6 class="mb-0 fw-semibold">고양이 사료</h6>
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0">401</h6>
+                                  <span class="text-muted">번 검색</span>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="d-flex mb-4 pb-1">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-success"><i class="ti ti-square-rounded-chevron-up"></i></span>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <small class="text-muted d-block mb-1">3rd</small>
+                                  <h6 class="mb-0 fw-semibold">코끼리 사료</h6>
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0">358</h6>
+                                  <span class="text-muted">번 검색</span>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="d-flex mb-4 pb-1">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-secondary"><i class="ti ti-square-rounded-minus"></i></span>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <small class="text-muted d-block mb-1">4th</small>
+                                  <h6 class="mb-0 fw-semibold">코뿔소 사료</h6>
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0">331</h6>
+                                  <span class="text-muted">번 검색</span>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="d-flex">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-secondary"><i class="ti ti-square-rounded-minus"></i></span>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <small class="text-muted d-block mb-1">5th</small>
+                                  <h6 class="mb-0 fw-semibold">다람쥐 사료</h6>
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0">202</h6>
+                                  <span class="text-muted">번 검색</span>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                
+                        <div class="tab-pane fade" id="navs-tabs-line-card-snack" role="tabpanel">
+                          <ul class="p-0 m-0">
+                            <li class="d-flex mb-4 pb-1">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-primary"><i class="ti ti-square-rounded-chevron-up"></i></span>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <small class="text-muted d-block mb-1">1st</small>
+                                  <h6 class="mb-0 fw-semibold">강아지 간식</h6>
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0">412</h6>
+                                  <span class="text-muted">번 검색</span>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="d-flex mb-4 pb-1">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-info"><i class="ti ti-square-rounded-chevron-up"></i></span>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <small class="text-muted d-block mb-1">2nd</small>
+                                  <h6 class="mb-0 fw-semibold">고양이 간식</h6>
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0">323</h6>
+                                  <span class="text-muted">번 검색</span>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="d-flex mb-4 pb-1">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-success"><i class="ti ti-square-rounded-chevron-up"></i></span>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <small class="text-muted d-block mb-1">3rd</small>
+                                  <h6 class="mb-0 fw-semibold">코끼리 간식</h6>
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0">275</h6>
+                                  <span class="text-muted">번 검색</span>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="d-flex mb-4 pb-1">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-secondary"><i class="ti ti-square-rounded-minus"></i></span>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <small class="text-muted d-block mb-1">4th</small>
+                                  <h6 class="mb-0 fw-semibold">코뿔소 간식</h6>
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0">241</h6>
+                                  <span class="text-muted">번 검색</span>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="d-flex">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-secondary"><i class="ti ti-square-rounded-minus"></i></span>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <small class="text-muted d-block mb-1">5th</small>
+                                  <h6 class="mb-0 fw-semibold">다람쥐 간식</h6>
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0">120</h6>
+                                  <span class="text-muted">번 검색</span>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                
+                        <div class="tab-pane fade" id="navs-tabs-line-card-nutrients" role="tabpanel">
+                          <ul class="p-0 m-0">
+                            <li class="d-flex mb-4 pb-1">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-primary"><i class="ti ti-square-rounded-chevron-up"></i></span>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <small class="text-muted d-block mb-1">1st</small>
+                                  <h6 class="mb-0 fw-semibold">강아지 영양제</h6>
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0">315</h6>
+                                  <span class="text-muted">번 검색</span>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="d-flex mb-4 pb-1">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-info"><i class="ti ti-square-rounded-chevron-up"></i></span>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <small class="text-muted d-block mb-1">2nd</small>
+                                  <h6 class="mb-0 fw-semibold">고양이 영양제</h6>
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0">289</h6>
+                                  <span class="text-muted">번 검색</span>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="d-flex mb-4 pb-1">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-success"><i class="ti ti-square-rounded-chevron-up"></i></span>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <small class="text-muted d-block mb-1">3rd</small>
+                                  <h6 class="mb-0 fw-semibold">코끼리 영양제</h6>
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0">258</h6>
+                                  <span class="text-muted">번 검색</span>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="d-flex mb-4 pb-1">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-secondary"><i class="ti ti-square-rounded-minus"></i></span>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <small class="text-muted d-block mb-1">4th</small>
+                                  <h6 class="mb-0 fw-semibold">코뿔소 영양제</h6>
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0">241</h6>
+                                  <span class="text-muted">번 검색</span>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="d-flex">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-secondary"><i class="ti ti-square-rounded-minus"></i></span>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <small class="text-muted d-block mb-1">5th</small>
+                                  <h6 class="mb-0 fw-semibold">다람쥐 영양제</h6>
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0">120</h6>
+                                  <span class="text-muted">번 검색</span>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!--/ Order Statistics -->
+                
+        
+        <div class="col-md-6 col-lg-4 order-1 mb-4">
+            <div class="card h-100">
+                <div class="card-header d-flex align-items-center justify-content-between pb-0">
+                    <div class="card-title mb-0">
+                        <h5 class="m-0 me-2 fw-semibold">등록된 강아지</h5>
+                        <small class="text-muted"><span>{{ data[0][2] }}</span> Total Users</small>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn p-0" type="button" id="orderStatistics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bx bx-dots-vertical-rounded"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orderStatistics">
+                            <a class="dropdown-item" href="javascript:void(0);">Select All</a>
+                            <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+                            <a class="dropdown-item" href="javascript:void(0);">Share</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="d-flex flex-column align-items-center gap-1">
+                          <h2 class="mb-2">{{ data[0][2] }}</h2> <!-- 전체 count 값을 표시 -->
+                            
+                            <span>Total Dogs</span>
+                        </div>
+                        <div id="orderStatisticsChart"></div>
+                    </div>
+                    <ul class="p-0 m-0">
+                      {% for row in data %}
+                        <li class="d-flex mb-4 pb-1">
+                            <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-primary">
+                                    <i class="ti ti-number-{{ loop.index }}"></i>
+                                </span>
+                            </div>
+                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                    <h6 class="mb-0 fw-semibold">{{ row[0] }}</h6>
+                                    <small class="text-muted">{{ row[0] }}</small>
+                                </div>
+                                <div class="user-progress">
+                                    <small class="fw-semibold">{{ row[1] }}</small>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+
+                        <!-- <li class="d-flex">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <span class="avatar-initial rounded bg-label-secondary"
+                              ><i class="ti ti-dots"></i
+                            ></span>
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <h6 class="mb-0">ETC</h6>
+                              <small class="text-muted">"asasas"</small>
+                            </div>
+                            <div class="user-progress">
+                              <small class="fw-semibold">460</small>
+                            </div>
+                          </div>
+                        </li> -->
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <!--/ Expense Overview -->
+
+                <!-- Transactions -->
+                <div class="col-md-6 col-lg-4 order-2 mb-4">
+                  <div class="card h-100">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                      <h5 class="card-title m-0 me-2 fw-semibold">질문 카테고리 순위</h5>
+                      <div class="dropdown">
+                        <button
+                          class="btn p-0"
+                          type="button"
+                          id="transactionID"
+                          data-bs-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          <i class="bx bx-dots-vertical-rounded"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
+                          <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
+                          <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
+                          <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <ul class="p-0 m-0">
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <span class="avatar-initial rounded bg-label-primary"
+                              ><i class="ti ti-square-rounded-chevron-up"></i
+                            ></span>
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">1st</small>
+                              <h6 class="mb-0 fw-semibold">강아지 사료</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">521</h6>
+                              <span class="text-muted">번 검색</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <span class="avatar-initial rounded bg-label-info"
+                              ><i class="ti ti-square-rounded-chevron-up"></i
+                            ></span>
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">2nd</small>
+                              <h6 class="mb-0 fw-semibold">예방 접종</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">401</h6>
+                              <span class="text-muted">번 검색</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <span class="avatar-initial rounded bg-label-success"
+                              ><i class="ti ti-square-rounded-chevron-up"></i></span>
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">3rd</small>
+                              <h6 class="mb-0 fw-semibold">털빠짐</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">358</h6>
+                              <span class="text-muted">번 검색</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <span class="avatar-initial rounded bg-label-secondary"
+                              ><i class="ti ti-square-rounded-minus"></i
+                            ></span>
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">4th</small>
+                              <h6 class="mb-0 fw-semibold">영양제 추천</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">331</h6>
+                              <span class="text-muted">번 검색</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <span class="avatar-initial rounded bg-label-secondary"
+                              ><i class="ti ti-square-rounded-minus"></i
+                            ></span>
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">5th</small>
+                              <h6 class="mb-0 fw-semibold">배변 교육</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">202</h6>
+                              <span class="text-muted">번 검색</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <span class="avatar-initial rounded bg-label-secondary"
+                              ><i class="ti ti-square-rounded-minus"></i
+                            ></span>
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">6th</small>
+                              <h6 class="mb-0 fw-semibold ">고양이 사료</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">122</h6>
+                              <span class="text-muted">번 검색</span>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!--/ Transactions -->
+              </div>
+            </div>
+            <!-- / Content -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+    <script type="application/javascript">
+      // static/js 폴더의 JSON 파일을 로드
+      fetch("{{ url_for('static', filename='js/data.json') }}")
+          .then(response => response.json())
+          .then(petData => {
+              console.log(petData);
+              // petData를 사용하여 필요한 작업 수행
+              const petList = document.getElementById('pet-list');
+              petData.forEach((row, index) => {
+                  const listItem = document.createElement('li');
+                  listItem.classList.add('d-flex', 'mb-4', 'pb-1');
+
+                  listItem.innerHTML = `
+                      <div class="avatar flex-shrink-0 me-3">
+                          <span class="avatar-initial rounded bg-label-primary">
+                              <i class="ti ti-number-${index + 1}"></i>
+                          </span>
+                      </div>
+                      <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                          <div class="me-2">
+                              <h6 class="mb-0 fw-semibold">${row[0]}</h6>
+                              <small class="text-muted">Count: ${row[1]}</small>
+                              <small class="text-muted">Total: ${row[2]}</small>
+                          </div>
+                          <div class="user-progress">
+                              <small class="fw-semibold">${row[1]}</small>
+                          </div>
+                      </div>
+                  `;
+
+                  petList.appendChild(listItem);
+              });
+          })
+          .catch(error => console.error('Error fetching data:', error));
+  </script>
+  <script src="{{ url_for('static', filename='js/dashboards-analytics.js') }}"></script>
+    
+    <!-- Core JS -->
+    <!-- build:js static/vendor/js/core.js -->
+    <script src="../static/vendor/libs/jquery/jquery.js"></script>
+    <script src="../static/vendor/libs/popper/popper.js"></script>
+    <script src="../static/vendor/js/bootstrap.js"></script>
+    <script src="../static/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../static/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="../static/vendor/libs/apex-charts/apexcharts.js"></script>
+
+    <!-- Main JS -->
+    <script src="../static/js/main.js"></script>
+    
+    <!-- Page JS -->
+    <script src="../static/js/dashboards-analytics.js"></script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </body>
+</html>
