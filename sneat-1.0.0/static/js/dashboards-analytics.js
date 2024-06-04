@@ -276,9 +276,26 @@
 
   // Growth Chart - Radial Bar Chart
   // --------------------------------------------------------------------
+// Fetch the questions data from the Flask endpoint
+fetch("/static/js/questions.json")
+  .then(response => response.json())
+  .then(data => {
+    console.log('Data from questions.json:', data);
+
+    // Extract com and incom values from the fetched data
+    const com = data.com;
+    const incom = data.incom;
+
+    // Calculate the total and the completion percentage
+    const total = com + incom;
+    const completePercentage = ((com / total) * 100).toFixed(2);
+
+    console.log('com:', com);
+    console.log('incom:', incom);
+    console.log('Complete Percentage:', completePercentage);
   const growthChartEl = document.querySelector('#growthChart'),
     growthChartOptions = {
-      series: [78],
+      series: [completePercentage],
       labels: ['Complete'],
       chart: {
         height: 255,
@@ -350,10 +367,12 @@
         }
       }
     };
-  if (typeof growthChartEl !== undefined && growthChartEl !== null) {
-    const growthChart = new ApexCharts(growthChartEl, growthChartOptions);
-    growthChart.render();
-  }
+    if (typeof growthChartEl !== undefined && growthChartEl !== null) {
+      const growthChart = new ApexCharts(growthChartEl, growthChartOptions);
+      growthChart.render();
+    }
+  })
+  .catch(error => console.error('Error fetching questions data:', error));
 
   // Profit Report Line Chart
   // --------------------------------------------------------------------
@@ -443,107 +462,92 @@
     console.log('Kind Counts:', kindCounts);
     console.log('Total Counts:', totalCounts);
 
-    let p_kind = '';
-    for (let i of petKinds) {
-      p_kind += i + ','; // 요소들을 쉼표로 구분하여 연결
-    }
+    // 레이블 문자열로 변환
+    let p_kind = petKinds.join(',');
 
-    // 마지막 쉼표를 제거한 최종 문자열 출력
-    p_kind = p_kind.slice(0, -1); // 마지막 쉼표 제거
     console.log('Combined Pet Kinds:', p_kind);
 
     const totalKindCount = kindCounts.reduce((sum, count) => sum + count, 0);
 
-    // kindCounts 배열의 값을 백분율로 변환하여 percentCounts 배열에 저장
-    // kindCounts 배열의 값을 백분율로 변환하여 쉼표로 구분된 문자열로 저장
-    let percentCounts = '';
-    for (let count of kindCounts) {
-      let percentage = (count / totalKindCount * 100).toFixed(1);
-      percentCounts += percentage + ','; // 백분율을 쉼표로 구분하여 연결
-    }
-
-    // 마지막 쉼표를 제거한 최종 문자열 출력
-    percentCounts = percentCounts.slice(0, -1); // 마지막 쉼표 제거
-    console.log('Percent Counts:', percentCounts);
+    // 백분율로 변환
+    let percentCounts = kindCounts.map(count => ((count / totalKindCount) * 100).toFixed(1));
+    console.log('Percent Counts:', percentCounts.map(Number));
 
     // 차트 설정
     const chartOrderStatistics = document.querySelector('#orderStatisticsChart');
-
-    const orderChartConfig = {
-      chart: {
-        height: 165,
-        width: 130,
-        type: 'donut'
-      },
-      labels: petKinds, // 각 요소를 별도의 레이블로 사용
-      series: percentCounts.split(',').map(Number), // 각 petKind의 count를 series로 사용
-      colors: [config.colors.primary, config.colors.info, config.colors.success, config.colors.secondary],
-      stroke: {
-        width: 5,
-        colors: cardColor
-      },
-      dataLabels: {
-        enabled: false,
-        formatter: function (val, opt) {
-          return parseInt(val) + '%';
-        }
-      },
-      legend: {
-        show: false
-      },
-      grid: {
-        padding: {
-          top: 0,
-          bottom: 0,
-          right: 15
-        }
-      },
-      plotOptions: {
-        pie: {
-          donut: {
-            size: '75%',
-            labels: {
-              show: true,
-              value: {
-                fontSize: '1.5rem',
-                fontFamily: 'Public Sans',
-                color: headingColor,
-                offsetY: -15,
-                formatter: function (val) {
-                  return parseInt(val) + '%';
-                }
-              },
-              name: {
-                offsetY: 20,
-                fontFamily: 'Public Sans'
-              },
-              total: {
+    if (chartOrderStatistics !== undefined && chartOrderStatistics !== null) {
+      const orderChartConfig = {
+        chart: {
+          height: 165,
+          width: 130,
+          type: 'donut'
+        },
+        labels: ['a','a','a','a'], // 각 요소를 별도의 레이블로 사용
+        series: [20,20,20,20], // 각 petKind의 count를 series로 사용
+        colors: [config.colors.primary, config.colors.info, config.colors.success, config.colors.secondary,'red'],
+        stroke: {
+          width: 6,
+          colors: cardColor
+        },
+        dataLabels: {
+          enabled: false,
+          formatter: function (val, opt) {
+            return parseInt(val) + '%';
+          }
+        },
+        legend: {
+          show: false
+        },
+        grid: {
+          padding: {
+            top: 0,
+            bottom: 0,
+            right: 15
+          }
+        },
+        plotOptions: {
+          pie: {
+            donut: {
+              size: '75%',
+              labels: {
                 show: true,
-                fontSize: '0.8125rem',
-                color: axisColor,
-                label: 'type',
-                formatter: function (w) {
-                  return 'Dog';
+                value: {
+                  fontSize: '1.5rem',
+                  fontFamily: 'Public Sans',
+                  color: headingColor,
+                  offsetY: -15,
+                  formatter: function (val) {
+                    return parseInt(val) + '%';
+                  }
+                },
+                name: {
+                  offsetY: 20,
+                  fontFamily: 'Public Sans'
+                },
+                total: {
+                  show: true,
+                  fontSize: '0.8125rem',
+                  color: axisColor,
+                  label: 'type',
+                  formatter: function (w) {
+                    return 'Dog';
+                  }
                 }
               }
             }
           }
         }
-      }
-    };
+      };
 
-    // 차트를 생성할 HTML 요소 선택 (예: id가 'chart'인 요소)
-    const chart = new ApexCharts(chartOrderStatistics, orderChartConfig);
-    chart.render();
+      const chart = new ApexCharts(chartOrderStatistics, orderChartConfig);
+      chart.render();
+    } else {
+      console.error('Element with id "orderStatisticsChart" not found.');
+    }
   })
-  .catch(error => console.error('Error fetching data from data.json:', error));
+  .catch(error => console.error('Error fetching data:', error));
 
 
-
-  if (typeof chartOrderStatistics !== undefined && chartOrderStatistics !== null) {
-    const statisticsChart = new ApexCharts(chartOrderStatistics, orderChartConfig);
-    statisticsChart.render();
-  }
 
   // Income Chart - Area chart
   // --------------------------------------------------------------------

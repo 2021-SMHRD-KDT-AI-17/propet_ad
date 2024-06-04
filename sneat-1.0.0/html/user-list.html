@@ -158,66 +158,16 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+
+                      {% for user in users[:15] %}
                       <tr>
-                        <td class="id">U12345</td>
-                        <td class="username">John Doe</td>
-                        <td class="phone">010-1234-5678</td>
-                        <td class="status"><span class="badge bg-label-primary me-1">Enrolled</span></td>
+                        <td class="id">{{ user[0]}}</td>
+                        <td class="username">{{ user[1]}}</td>
+                        <td class="phone">{{ user[2]}}</td>
+                        <td class="status"><span class="badge bg-label-primary me-1">{{user[3]}}</span></td>
                       </tr>
-                      <tr class="table-light">
-                        <td class="id">U12346</td>
-                        <td class="username">Jane Smith</td>
-                        <td class="phone">010-2345-6789</td>
-                        <td class="status"><span class="badge bg-label-secondary me-1">Not Enrolled</span></td>
-                      </tr>
-                      <tr>
-                        <td class="id">U12347</td>
-                        <td class="username">Michael Johnson</td>
-                        <td class="phone">010-3456-7890</td>
-                        <td class="status"><span class="badge bg-label-primary me-1">Enrolled</td>
-                      </tr>
-                      <tr class="table-light">
-                        <td class="id">U12348</td>
-                        <td class="username">Emily Davis</td>
-                        <td class="phone">010-4567-8901</td>
-                        <td class="status"><span class="badge bg-label-secondary me-1">Not Enrolled</span></td>
-                      </tr>
-                      <tr>
-                        <td class="id">U12349</td>
-                        <td class="username">William Brown</td>
-                        <td class="phone">010-5678-9012</td>
-                        <td class="status"><span class="badge bg-label-primary me-1">Enrolled</td>
-                      </tr>
-                      <tr class="table-light">
-                        <td class="id">U12350</td>
-                        <td class="username">Ava Wilson</td>
-                        <td class="phone">010-6789-0123</td>
-                        <td class="status"><span class="badge bg-label-secondary me-1">Not Enrolled</span></td>
-                      </tr>
-                      <tr>
-                        <td class="id">U12351</td>
-                        <td class="username">Sophia Martinez</td>
-                        <td class="phone">010-7890-1234</td>
-                        <td class="status"><span class="badge bg-label-primary me-1">Enrolled</td>
-                      </tr>
-                      <tr class="table-light">
-                        <td class="id">U12352</td>
-                        <td class="username">James Anderson</td>
-                        <td class="phone">010-8901-2345</td>
-                        <td class="status"><span class="badge bg-label-secondary me-1">Not Enrolled</span></td>
-                      </tr>
-                      <tr>
-                        <td class="id">U12353</td>
-                        <td class="username">Olivia Lee</td>
-                        <td class="phone">010-9012-3456</td>
-                        <td class="status"><span class="badge bg-label-primary me-1">Enrolled</td>
-                      </tr>
-                      <tr class="table-light">
-                        <td class="id">U12354</td>
-                        <td class="username">Mason Walker</td>
-                        <td class="phone">010-0123-4567</td>
-                        <td class="status"><span class="badge bg-label-secondary me-1">Not Enrolled</span></td>
-                      </tr>
+                      {% endfor %}
+                
                     </tbody>
                   </table>
                 </div>

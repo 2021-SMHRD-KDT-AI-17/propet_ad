@@ -9,6 +9,51 @@ app = Flask(__name__, template_folder='html', static_folder='static')
 # 로깅 설정
 logging.basicConfig(level=logging.DEBUG)
 
+def get_users():
+    try:
+        connection = pymysql.connect(
+            host='project-db-cgi.smhrd.com',
+            user='vmfhvpttj',
+            password='20240621',
+            database='vmfhvpttj',
+            port=3307
+        )
+        app.logger.debug("Database connection successful")
+    except pymysql.MySQLError as e:
+        app.logger.error(f"Error connecting to MySQL: {e}")
+        return []
+    
+    try:
+        with connection.cursor() as cursor:
+            sql = """
+            SELECT 
+                u.u_id, 
+                u.u_name, 
+                u.u_phone,
+            CASE 
+                    WHEN p.u_idx IS NOT NULL THEN 'Y' 
+                    ELSE 'N' 
+                END AS pet_status,
+                (SELECT COUNT(*) FROM users) AS total
+            FROM 
+                users u
+            LEFT OUTER JOIN 
+                pet p
+            ON 
+                u.u_idx = p.u_idx;
+            """
+            cursor.execute(sql)
+            rows = cursor.fetchall()
+            app.logger.debug(f"Users query executed successfully: {rows}")
+            return rows
+    except pymysql.MySQLError as e:
+        app.logger.error(f"Error executing query: {e}")
+        return []
+    finally:
+        connection.close()
+
+
+
 def get_top_pets():
     try:
         connection = pymysql.connect(
@@ -79,6 +124,8 @@ def index():
     try:
         data = get_top_pets()
         questions = get_questions()
+        users = get_users()
+
         
         # com과 incom 계산
         com = sum(1 for row in questions if row[2] == 'Y')
@@ -88,7 +135,11 @@ def index():
         with open(data_json_path, 'w') as json_file:
             json.dump(data, json_file)
 
-        return render_template('index.html', data=data, questions=questions, com=com, incom=incom)
+        questions_json_path = os.path.join(app.static_folder, 'js', 'questions.json')
+        with open(questions_json_path, 'w') as json_file:
+            json.dump({"com": com, "incom": incom}, json_file)
+
+        return render_template('index.html', users = users,data=data, questions=questions, com=com, incom=incom)
     except Exception as e:
         app.logger.error(f"Error rendering template: {e}")
         return "Internal Server Error", 500
@@ -109,7 +160,13 @@ def basic():
 
 @app.route('/user_list')
 def user_list():
-    return render_template('user-list.html')
+    try:
+        users = get_users()
+        return render_template('user-list.html',users = users)
+    except Exception as e:
+        app.logger.error(f"Error rendering template: {e}")
+        return "Internal Server Error", 500
+    
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     return render_template('auth-login-basic.html')

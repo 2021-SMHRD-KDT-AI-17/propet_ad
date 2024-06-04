@@ -30,7 +30,6 @@
     <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
 
     <meta name="description" content="" />
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../static/img/favicon/favicon.ico" />
 
@@ -59,6 +58,8 @@
 
     <!-- Helpers -->
     <script src="../static/vendor/js/helpers.js"></script>
+    
+
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
@@ -73,7 +74,7 @@
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
         <!-- Menu -->
-
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
             <a href="{{ url_for('index') }}" class="app-brand-link">
@@ -289,7 +290,10 @@
                             </div>
                           </div>
                           <span class="fw-semibold d-block mb-1">가입자 수</span>
-                          <h3 class="card-title text-nowrap mb-2">1,022</h3>
+                          {% for user in users[:1] %}
+                          <h3 class="card-title text-nowrap mb-2">{{user[4]}}</h3>
+
+                          {%endfor%}
                           <small class="text-primary fw-semibold"><i class="bx bx-up-arrow-alt"></i> +14.82%</small>
                         </div>
                       </div>
@@ -884,5 +888,7 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    
+    </script>
   </body>
 </html>
