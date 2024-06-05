@@ -1,17 +1,4 @@
 <!DOCTYPE html>
-
-<!-- =========================================================
-* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
-==============================================================
-
-* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
-* Created by: ThemeSelection
-* License: You must have a valid license purchased in order to legally use the theme for your project.
-* Copyright ThemeSelection (https://themeselection.com)
-
-=========================================================
- -->
-<!-- beautify ignore:start -->
 <html
   lang="en"
   class="light-style customizer-hide"
@@ -27,7 +14,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Register Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>관리자 가입</title>
 
     <meta name="description" content="" />
 
@@ -62,9 +49,22 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../static/js/config.js"></script>
+
+    <style>
+      body {
+        font-size: 16px; /* 기본 폰트 사이즈를 설정합니다 */
+        font-family: 'Omyu', sans-serif; /* 기본 폰트를 설정합니다 */
+      }
+      .form-label, .form-control, .btn, .text-center, p {
+        font-size: 18px; /* 폼 라벨, 폼 컨트롤, 버튼, 텍스트 센터 등의 폰트 사이즈를 설정합니다 */
+      }
+      h4{
+        font-size: 25px;
+      }
+    </style>
   </head>
 
-  <body>
+  <body class="Omyu">
     <!-- Content -->
 
     <div class="container-xxl">
@@ -73,43 +73,32 @@
           <!-- Register Card -->
           <div class="card">
             <div class="card-body">
-              <!-- Logo -->
-              <div class="app-brand justify-content-center">
-                <a href="{{ url_for('index') }}" class="app-brand-link">
-                  <span class="app-brand-logo demo">
-                    <img src="../static/img/logos/logo1.png" width="150" />
-                  </span>
-                </a>
-              </div>
-              <!-- /Logo -->
               <div class="text-center">
-                <h4 class="mb-2">Please enter your information 🧾</h4>
-                <p class="mb-4">Please sign up to use it !</p>
+                <h4 class="mb-3 mt-3">가입 정보를 입력해 주세요 🧾</h4>
               </div>
-              
 
               <form id="formAuthentication" class="mb-3" action="{{ url_for('login') }}" method="POST">
                 <div class="mb-3">
-                  <label for="username" class="form-label">Admin ID</label>
+                  <label for="username" class="form-label">관리자 ID</label>
                   <input
                     type="text"
                     class="form-control"
                     id="username"
                     name="username"
-                    placeholder="Enter your Admin ID"
+                    placeholder="관리자 ID를 입력해 주세요."
                     autofocus
                   />
                 </div>
 
                 <div class="mb-3 form-password-toggle">
-                  <label class="form-label" for="password">Password</label>
+                  <label class="form-label" for="password">비밀번호</label>
                   <div class="input-group input-group-merge">
                     <input
                       type="password"
                       id="password"
                       class="form-control"
                       name="password"
-                      placeholder="Enter your Password"
+                      placeholder="비밀번호를 입력해 주세요."
                       aria-describedby="password"
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
@@ -117,26 +106,26 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="email" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" />
+                  <label for="email" class="form-label">이름</label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="성함을 입력해 주세요." />
                 </div>
 
                 <div class="mb-3">
-                  <label for="Phone" class="form-label">Phone</label>
-                  <input type="text" class="form-control" id="email" name="email" placeholder="Enter your Phone number" />
+                  <label for="Phone" class="form-label">전화번호</label>
+                  <input type="text" class="form-control" id="email" name="email" placeholder="전화번호를 입력해 주세요." />
                 </div>
 
                 <div class="mb-3">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
                     <label class="form-check-label" for="terms-conditions">
-                      I agree to
-                      <a href="javascript:void(0);">privacy policy & terms</a>
+                      <a href="javascript:void(0);">정책에</a>
+                      동의합니다.
                     </label>
                   </div>
                 </div>
-                <button class="btn btn-primary d-grid w-100 mb-3">Sign up</button>
-                <button class="btn btn-outline-secondary d-grid w-100">Cancel</button>
+                <button class="btn btn-primary d-grid w-100 mb-3">회원가입 완료</button>
+                <button class="btn btn-outline-secondary d-grid w-100">취소</button>
               </form>
 
             </div>

@@ -105,3 +105,26 @@
   text-align: center;
   margin-top: 1rem;
 }
+
+@font-face {
+  font-family: 'GeekbleMalang2WOFF2';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/GeekbleMalang2WOFF2.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.Geekble {
+  font-family: 'GeekbleMalang2WOFF2';
+}
+
+@font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.Omyu {
+  font-family: 'omyu_pretty';
+  font-size: large;
+}

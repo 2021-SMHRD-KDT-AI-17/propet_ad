@@ -1,18 +1,4 @@
 <!DOCTYPE html>
-
-<!-- =========================================================
-* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
-==============================================================
-
-* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
-* Created by: ThemeSelection
-* License: You must have a valid license purchased in order to legally use the theme for your project.
-* Copyright ThemeSelection (https://themeselection.com)
-
-=========================================================
--->
-<!-- beautify ignore:start -->
-
 <html
   lang="en"
   class="light-style customizer-hide"
@@ -28,7 +14,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Login Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>관리자 로그인</title>
 
     <meta name="description" content="" />
 
@@ -63,9 +49,23 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../static/js/config.js"></script>
+
+    <style>
+      body {
+        font-size: 16px; /* 기본 폰트 사이즈를 설정합니다 */
+        font-family: 'Omyu', sans-serif; /* 기본 폰트를 설정합니다 */
+      }
+      .form-label, .form-control, .btn, .text-center, p {
+        font-size: 18px; /* 폼 라벨, 폼 컨트롤, 버튼, 텍스트 센터 등의 폰트 사이즈를 설정합니다 */
+      }
+      h4{
+        font-size: 25px;
+      }
+    </style>
+  </head>
   </head>
 
-  <body>
+  <body class="Omyu"> <!-- 여기에 Omyu 클래스를 추가합니다 -->
     <!-- Content -->
 
     <div class="container-xxl">
@@ -84,26 +84,25 @@
               </div>
               <!-- /Logo -->
               <div class="text-center">
-                <h4 class="mb-2">Welcome to ProPetSor 👋</h4>
-                <p class="mb-4">Please log in to check the dashboard!</p>
+                <h4 class="mb-2">프로펫서에 오신 것을 환영합니다 👋</h4>
+                <p class="mb-4">관리자 대시보드를 이용하시려면 로그인 해주세요!</p>
               </div>
-              
 
               <form id="formAuthentication" class="mb-3" action="{{ url_for('login') }}" method="POST">
                 <div class="mb-3">
-                  <label for="email" class="form-label">Admin ID</label>
+                  <label for="email" class="form-label">관리자 ID</label>
                   <input
                     type="text"
                     class="form-control"
                     id="email"
                     name="email-username"
-                    placeholder="Enter your Admin ID"
+                    placeholder="관리자 ID를 입력해 주세요."
                     autofocus
                   />
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">
-                    <label class="form-label" for="password">Password</label>
+                    <label class="form-label" for="password">비밀번호</label>
                   </div>
                   <div class="input-group input-group-merge">
                     <input
@@ -111,7 +110,7 @@
                       id="password"
                       class="form-control"
                       name="password"
-                      placeholder="Enter your Password"
+                      placeholder="비밀번호를 입력해 주세요."
                       aria-describedby="password"
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
@@ -120,11 +119,11 @@
                 <div class="mb-3">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="remember-me" />
-                    <label class="form-check-label" for="remember-me"> Remember Me </label>
+                    <label class="form-check-label" for="remember-me"> ID 저장 </label>
                   </div>
                 </div>
                 <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit">Login</button>
+                  <button class="btn btn-primary d-grid w-100" type="submit">로그인</button>
                 </div>
               </form>
               
@@ -138,7 +137,7 @@
 
               <p class="text-center">
                 <a href="{{ url_for('register') }}">
-                  <span>Create an admin account</span>
+                  <span>계정 생성하기</span>
                 </a>
               </p>
             </div>
