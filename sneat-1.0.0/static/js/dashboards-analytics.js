@@ -332,13 +332,13 @@ fetch("/static/js/questions.json")
           }
         }
       },
-      colors: [config.colors.info],
+      colors: [config.colors.success],
       fill: {
         type: 'gradient',
         gradient: {
           shade: 'dark',
           shadeIntensity: 0.5,
-          gradientToColors: [config.colors.info],
+          gradientToColors: [config.colors.success],
           inverseColors: true,
           opacityFrom: 1,
           opacityTo: 0.6,
@@ -379,7 +379,7 @@ fetch("/static/js/questions.json")
   const profileReportChartEl = document.querySelector('#profileReportChart'),
     profileReportChartConfig = {
       chart: {
-        height: 128,
+        height: 163,
         // width: 175,
         type: 'line',
         toolbar: {

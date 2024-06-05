@@ -67,9 +67,27 @@
 
     <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+
+    <style>
+      body {
+        font-family: 'Omyu', sans-serif;
+        font-size: 18px; /* 기본 폰트 사이즈를 설정합니다 */
+      }
+    
+       h5{
+        font-size: 25px; /* 필요한 경우 다른 요소의 폰트 사이즈를 설정할 수 있습니다 */
+      }
+      p, label, div, a, button, table, td, h1, h2, h3, h4, h6{
+        font-size: 20px;
+      }
+      span{
+        font-size: 18px;
+      }
+    </style>
+    
   </head>
 
-  <body>
+  <body class="Omyu">
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -87,31 +105,31 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
-              <a href="index.html" class="menu-link">
+              <a href="{{ url_for('index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div>
+                <div data-i18n="Analytics">대시보드</div>
               </a>
             </li>
 
             <!-- management -->
             <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Management</span>
+              <span class="menu-header-text">관리</span>
             </li>
             <li class="menu-item">
               <a href="{{ url_for('basic') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-list-check"></i>
-                <div data-i18n="Basic">Questions table</div>
+                <div data-i18n="Basic">질문 리스트</div>
               </a>
             </li>
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">User Page</div>
+                <div data-i18n="Account Settings">유저 페이지</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
                   <a href="{{ url_for('user_list') }}" class="menu-link">
-                    <div data-i18n="Basic">User list</div>
+                    <div data-i18n="Basic">유저 목록</div>
                   </a>
                 </li>
               </ul>
@@ -119,28 +137,28 @@
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                <div data-i18n="Account Settings">Manager Page</div>
+                <div data-i18n="Account Settings">관리자 페이지</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
                   <a href="{{ url_for('account') }}" class="menu-link">
-                    <div data-i18n="Account">Account</div>
+                    <div data-i18n="Account">계정</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="{{ url_for('notifications') }}" class="menu-link">
-                    <div data-i18n="Notifications">Notifications</div>
+                    <div data-i18n="Notifications">알림</div>
                   </a>
                 </li>
               </ul>
             </li>
             <!-- Components -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">계정</span></li>
             <!-- Cards -->
             <li class="menu-item">
               <a href="{{ url_for('login') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-log-out-circle"></i>
-                <div data-i18n="Basic">Logout</div>
+                <div data-i18n="Basic">로그아웃</div>
               </a>
             </li>
         </aside>
@@ -160,15 +178,15 @@
                     <div class="row row-bordered g-0">
                       <div class="col-md-8">
                         <div class="card">
-                          <h5 class="card-header fw-semibold">응답, 미응답 질문</h5>
+                          <h5 class="card-header">질문 리스트</h5>
                           <div class="table-responsive text-nowrap">
                             <table class="table">
                               <thead>
                                 <tr>
-                                  <th>Questions</th>
-                                  <th>Users</th>
-                                  <th>Status</th>
-                                  <th>Actions</th>
+                                  <th style="font-size: 18px;">질문</th>
+                                  <th style="font-size: 18px;">유저</th>
+                                  <th style="font-size: 18px;">상태</th>
+                                  <th style="font-size: 18px;">액션</th>
                                 </tr>
                               </thead>
                               <tbody class="table-border-bottom-0">
@@ -176,17 +194,17 @@
                                 {% for row in questions[:6] %}
                                 
                                 <tr>
-                                  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{row[0]}}</strong></td>
+                                  <td><i class="fab fa-angular fa-lg text-danger me-3"></i>{{row[0]}}</td>
                                   <td>
                                     <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                                      <li><strong>
+                                      <li>
                                         {{row[3]}}
-                                      </strong></li>
+                                      </li>
                                     </ul>
                                   </td>
                                   <td>
                                     <span class="badge bg-label-{{ 'success' if row[2] == 'Y' else 'danger' }} me-1">
-                                      {{ 'completed' if row[2] == 'Y' else 'incompleted' }}
+                                      {{ '해결' if row[2] == 'Y' else '미해결' }}
                                     </span>
                                   </td>
                                   <td>
@@ -233,16 +251,16 @@
                           </div>
                         </div>
                         <div id="growthChart"></div>
-                        <div class="text-center fw-semibold pt-3 mb-2">질문 해결률</div>
+                        <div class="text-center pt-3 mb-2 mt-2">질문 해결률</div>
                       
 
-                        <div class="d-flex px-xxl-4 px-lg-2 p-4 gap-xxl-3 gap-lg-1 gap-3 justify-content-between">
+                        <div class="d-flex px-xxl-4 px-lg-2 p-4 gap-xxl-3 gap-lg-1 gap-3 justify-content-center mt-2">
                           <div class="d-flex">
                             <div class="me-2">
-                              <span class="badge bg-label-info p-2"><i class="bx bx-user-check"></i></span>
+                              <span class="badge bg-label-success p-2"><i class="bx bx-user-check"></i></span>
                             </div>
                             <div class="d-flex flex-column">
-                              <small>Complete</small>
+                              <small>해결</small>
                               <h6 class="mb-0">{{com}}</h6>
                             </div>
                           </div>
@@ -251,7 +269,7 @@
                               <span class="badge bg-label-danger p-2"><i class="bx bx-user-x"></i></span>
                             </div>
                             <div class="d-flex flex-column">
-                              <small>Incomplete</small>
+                              <small>미해결</small>
                               <h6 class="mb-0">{{incom}}</h6>
                             </div>
                           </div>
@@ -289,12 +307,12 @@
                               </div>
                             </div>
                           </div>
-                          <span class="fw-semibold d-block mb-1">가입자 수</span>
+                          <span class=" d-block mb-1">가입자 수</span>
                           {% for user in users[:1] %}
                           <h3 class="card-title text-nowrap mb-2">{{user[4]}}</h3>
 
                           {%endfor%}
-                          <small class="text-primary fw-semibold"><i class="bx bx-up-arrow-alt"></i> +14.82%</small>
+                          <small class="text-primary"><i class="bx bx-up-arrow-alt"></i> +14.82%</small>
                         </div>
                       </div>
                     </div>
@@ -324,9 +342,9 @@
                               </div>
                             </div>
                           </div>
-                          <span class="fw-semibold d-block mb-1">방문자 수</span>
+                          <span class="d-block mb-1">방문자 수</span>
                           <h3 class="card-title mb-2">14,857</h3>
-                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.14%</small>
+                          <small class="text-success"><i class="bx bx-up-arrow-alt"></i> +28.14%</small>
                         </div>
                       </div>
                     </div>
@@ -337,15 +355,15 @@
                           <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
                             <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
                               <div class="card-title">
-                                <h5 class="fw-semibold text-nowrap mb-2">가입자 수 추이</h5>
+                                <h5 class="text-nowrap mb-2">가입자 수 추이</h5>
                                 <span class="badge bg-label-info rounded-pill">Year 2024</span>
                               </div>
                               <div class="mt-sm-auto">
-                                <small class="text-info text-nowrap fw-semibold"
+                                <small class="text-info text-nowrap "
                                   ><i class="bx bx-chevron-up"></i> 68.2%</small
                                 >
                                 <div class="user-progress d-flex align-items-center gap-1">
-                                  <span class="fw-semibold text-muted">전월 대비</span>
+                                  <span class=" text-muted">전월대비</span>
                                   <h6 class="mb-0">+ 82</h6>
                                 </div>
                               </div>
@@ -363,21 +381,21 @@
                 <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
                   <div class="card h-100">
                     <div class="card-header">
-                      <h5 class="card-title m-0 fw-semibold">상품별 카테고리 순위</h5>
+                      <h5 class="card-title m-0 ">상품별 카테고리 순위</h5>
                     </div>
-                    <ul class="nav nav-pills justify-content-center" role="tablist">
+                    <ul class="nav nav-pills justify-content-center mt-2 mb-2" role="tablist">
                       <li class="nav-item">
-                        <button type="button" class="nav-link active fw-semibold" role="tab" data-bs-toggle="tab" data-bs-target="#navs-tabs-line-card-feed" aria-controls="navs-tabs-line-card-feed" aria-selected="true">
+                        <button type="button" class="nav-link active " role="tab" data-bs-toggle="tab" data-bs-target="#navs-tabs-line-card-feed" aria-controls="navs-tabs-line-card-feed" aria-selected="true">
                           사료
                         </button>
                       </li>
                       <li class="nav-item">
-                        <button type="button" class="nav-link fw-semibold" role="tab" data-bs-toggle="tab" data-bs-target="#navs-tabs-line-card-snack" aria-controls="navs-tabs-line-card-snack" aria-selected="false">
+                        <button type="button" class="nav-link " role="tab" data-bs-toggle="tab" data-bs-target="#navs-tabs-line-card-snack" aria-controls="navs-tabs-line-card-snack" aria-selected="false">
                           간식
                         </button>
                       </li>
                       <li class="nav-item">
-                        <button type="button" class="nav-link fw-semibold" role="tab" data-bs-toggle="tab" data-bs-target="#navs-tabs-line-card-nutrients" aria-controls="navs-tabs-line-card-nutrients" aria-selected="false">
+                        <button type="button" class="nav-link " role="tab" data-bs-toggle="tab" data-bs-target="#navs-tabs-line-card-nutrients" aria-controls="navs-tabs-line-card-nutrients" aria-selected="false">
                           영양제
                         </button>
                       </li>
@@ -392,7 +410,7 @@
                               </div>
                               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
-                                  <h6 class="mb-0 fw-semibold">강아지 사료</h6>
+                                  <h6 class="mb-0 ">강아지 사료</h6>
                                 </div>
                                 <div class="user-progress d-flex align-items-center gap-1">
                                   <h6 class="mb-0">521</h6>
@@ -407,7 +425,7 @@
                               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
                                   <small class="text-muted d-block mb-1">2nd</small>
-                                  <h6 class="mb-0 fw-semibold">고양이 사료</h6>
+                                  <h6 class="mb-0 ">고양이 사료</h6>
                                 </div>
                                 <div class="user-progress d-flex align-items-center gap-1">
                                   <h6 class="mb-0">401</h6>
@@ -422,7 +440,7 @@
                               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
                                   <small class="text-muted d-block mb-1">3rd</small>
-                                  <h6 class="mb-0 fw-semibold">코끼리 사료</h6>
+                                  <h6 class="mb-0 ">코끼리 사료</h6>
                                 </div>
                                 <div class="user-progress d-flex align-items-center gap-1">
                                   <h6 class="mb-0">358</h6>
@@ -437,7 +455,7 @@
                               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
                                   <small class="text-muted d-block mb-1">4th</small>
-                                  <h6 class="mb-0 fw-semibold">코뿔소 사료</h6>
+                                  <h6 class="mb-0 ">코뿔소 사료</h6>
                                 </div>
                                 <div class="user-progress d-flex align-items-center gap-1">
                                   <h6 class="mb-0">331</h6>
@@ -451,8 +469,8 @@
                               </div>
                               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
-                                  <small class="text-muted d-block mb-1">5th</small>
-                                  <h6 class="mb-0 fw-semibold">다람쥐 사료</h6>
+                                  <small class="text-muted d-block mb-0">5th</small>
+                                  <h6 class="mb-0 ">다람쥐 사료</h6>
                                 </div>
                                 <div class="user-progress d-flex align-items-center gap-1">
                                   <h6 class="mb-0">202</h6>
@@ -472,7 +490,7 @@
                               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
                                   <small class="text-muted d-block mb-1">1st</small>
-                                  <h6 class="mb-0 fw-semibold">강아지 간식</h6>
+                                  <h6 class="mb-0 ">강아지 간식</h6>
                                 </div>
                                 <div class="user-progress d-flex align-items-center gap-1">
                                   <h6 class="mb-0">412</h6>
@@ -487,7 +505,7 @@
                               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
                                   <small class="text-muted d-block mb-1">2nd</small>
-                                  <h6 class="mb-0 fw-semibold">고양이 간식</h6>
+                                  <h6 class="mb-0 ">고양이 간식</h6>
                                 </div>
                                 <div class="user-progress d-flex align-items-center gap-1">
                                   <h6 class="mb-0">323</h6>
@@ -502,7 +520,7 @@
                               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
                                   <small class="text-muted d-block mb-1">3rd</small>
-                                  <h6 class="mb-0 fw-semibold">코끼리 간식</h6>
+                                  <h6 class="mb-0 ">코끼리 간식</h6>
                                 </div>
                                 <div class="user-progress d-flex align-items-center gap-1">
                                   <h6 class="mb-0">275</h6>
@@ -517,7 +535,7 @@
                               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
                                   <small class="text-muted d-block mb-1">4th</small>
-                                  <h6 class="mb-0 fw-semibold">코뿔소 간식</h6>
+                                  <h6 class="mb-0 ">코뿔소 간식</h6>
                                 </div>
                                 <div class="user-progress d-flex align-items-center gap-1">
                                   <h6 class="mb-0">241</h6>
@@ -532,7 +550,7 @@
                               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
                                   <small class="text-muted d-block mb-1">5th</small>
-                                  <h6 class="mb-0 fw-semibold">다람쥐 간식</h6>
+                                  <h6 class="mb-0 ">다람쥐 간식</h6>
                                 </div>
                                 <div class="user-progress d-flex align-items-center gap-1">
                                   <h6 class="mb-0">120</h6>
@@ -552,7 +570,7 @@
                               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
                                   <small class="text-muted d-block mb-1">1st</small>
-                                  <h6 class="mb-0 fw-semibold">강아지 영양제</h6>
+                                  <h6 class="mb-0 ">강아지 영양제</h6>
                                 </div>
                                 <div class="user-progress d-flex align-items-center gap-1">
                                   <h6 class="mb-0">315</h6>
@@ -567,7 +585,7 @@
                               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
                                   <small class="text-muted d-block mb-1">2nd</small>
-                                  <h6 class="mb-0 fw-semibold">고양이 영양제</h6>
+                                  <h6 class="mb-0 ">고양이 영양제</h6>
                                 </div>
                                 <div class="user-progress d-flex align-items-center gap-1">
                                   <h6 class="mb-0">289</h6>
@@ -582,7 +600,7 @@
                               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
                                   <small class="text-muted d-block mb-1">3rd</small>
-                                  <h6 class="mb-0 fw-semibold">코끼리 영양제</h6>
+                                  <h6 class="mb-0 ">코끼리 영양제</h6>
                                 </div>
                                 <div class="user-progress d-flex align-items-center gap-1">
                                   <h6 class="mb-0">258</h6>
@@ -597,7 +615,7 @@
                               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
                                   <small class="text-muted d-block mb-1">4th</small>
-                                  <h6 class="mb-0 fw-semibold">코뿔소 영양제</h6>
+                                  <h6 class="mb-0 ">코뿔소 영양제</h6>
                                 </div>
                                 <div class="user-progress d-flex align-items-center gap-1">
                                   <h6 class="mb-0">241</h6>
@@ -612,7 +630,7 @@
                               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
                                   <small class="text-muted d-block mb-1">5th</small>
-                                  <h6 class="mb-0 fw-semibold">다람쥐 영양제</h6>
+                                  <h6 class="mb-0 ">다람쥐 영양제</h6>
                                 </div>
                                 <div class="user-progress d-flex align-items-center gap-1">
                                   <h6 class="mb-0">120</h6>
@@ -633,8 +651,8 @@
                   <div class="card h-100">
                       <div class="card-header d-flex align-items-center justify-content-between pb-0">
                           <div class="card-title mb-0">
-                              <h5 class="m-0 me-2 fw-semibold">등록된 강아지</h5>
-                              <small class="text-muted"><span>{{ data[0][2] }}</span> Total Users</small>
+                              <h5 class="m-0 me-2 ">등록된 강아지</h5>
+                              <small class="text-muted"><span>{{ data[0][2] }}</span>명의 유저</small>
                           </div>
                           <div class="dropdown">
                               <button class="btn p-0" type="button" id="orderStatistics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -650,9 +668,9 @@
                       <div class="card-body">
                           <div class="d-flex justify-content-between align-items-center mb-3">
                               <div class="d-flex flex-column align-items-center gap-1">
-                                <h2 class="mb-2">{{ data[0][2] }}</h2> <!-- 전체 count 값을 표시 -->
+                                <h2 class="mb-2" style="font-size: 30px;">{{ data[0][2] }}</h2> <!-- 전체 count 값을 표시 -->
 
-                                  <span>Total Dogs</span>
+                                  <span>총 반려견</span>
                               </div>
                               <div id="orderStatisticsChart"></div>
                           </div>
@@ -668,11 +686,11 @@
                                   
                                   <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                       <div class="me-2">
-                                          <h6 class="mb-0 fw-semibold">{{ row[0] }}</h6>
+                                          <h6 class="mb-0 ">{{ row[0] }}</h6>
                                           <small class="text-muted">{{ row[0] }}</small>
                                       </div>
                                       <div class="user-progress">
-                                          <small class="fw-semibold">{{ row[1] }}</small>
+                                          <small class="">{{ row[1] }}</small>
                                       </div>
                                   </div>
                               </li>
@@ -683,7 +701,7 @@
                                 {% set ns.etc = ns.etc - row[1] %}
                               {% endfor %}
                               
-                              <li class="d-flex mb-4 pb-1">
+                              <li class="d-flex mb-0 pb-1">
                                 <div class="avatar flex-shrink-0 me-3">
                                     <span class="avatar-initial rounded bg-label-primary">
                                       
@@ -691,12 +709,12 @@
                                     </span>
                                 </div>
                                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                    <div class="me-2">
-                                        <h6 class="mb-0 fw-semibold">etc</h6>
+                                    <div class="me-2 mb-0">
+                                        <h6 class="mb-0 ">etc</h6>
                                         <small class="text-muted">낙타, 시바견...</small>
                                     </div>
                                     <div class="user-progress">
-                                        <small class="fw-semibold">{{ ns.etc }}</small>
+                                        <small class="">{{ ns.etc }}</small>
                                     </div>
                                 </div>
                             </li>
@@ -711,7 +729,7 @@
                 <div class="col-md-6 col-lg-4 order-2 mb-4">
                   <div class="card h-100">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="card-title m-0 me-2 fw-semibold">질문 카테고리 순위</h5>
+                      <h5 class="card-title m-0 me-2 ">질문 카테고리 순위</h5>
                       <div class="dropdown">
                         <button
                           class="btn p-0"
@@ -741,7 +759,7 @@
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
                               <small class="text-muted d-block mb-1">1st</small>
-                              <h6 class="mb-0 fw-semibold">강아지 사료</h6>
+                              <h6 class="mb-0 ">강아지 사료</h6>
                             </div>
                             <div class="user-progress d-flex align-items-center gap-1">
                               <h6 class="mb-0">521</h6>
@@ -758,7 +776,7 @@
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
                               <small class="text-muted d-block mb-1">2nd</small>
-                              <h6 class="mb-0 fw-semibold">예방 접종</h6>
+                              <h6 class="mb-0 ">예방 접종</h6>
                             </div>
                             <div class="user-progress d-flex align-items-center gap-1">
                               <h6 class="mb-0">401</h6>
@@ -774,7 +792,7 @@
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
                               <small class="text-muted d-block mb-1">3rd</small>
-                              <h6 class="mb-0 fw-semibold">털빠짐</h6>
+                              <h6 class="mb-0 ">털빠짐</h6>
                             </div>
                             <div class="user-progress d-flex align-items-center gap-1">
                               <h6 class="mb-0">358</h6>
@@ -791,7 +809,7 @@
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
                               <small class="text-muted d-block mb-1">4th</small>
-                              <h6 class="mb-0 fw-semibold">영양제 추천</h6>
+                              <h6 class="mb-0 ">영양제 추천</h6>
                             </div>
                             <div class="user-progress d-flex align-items-center gap-1">
                               <h6 class="mb-0">331</h6>
@@ -808,7 +826,7 @@
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
                               <small class="text-muted d-block mb-1">5th</small>
-                              <h6 class="mb-0 fw-semibold">배변 교육</h6>
+                              <h6 class="mb-0 ">배변 교육</h6>
                             </div>
                             <div class="user-progress d-flex align-items-center gap-1">
                               <h6 class="mb-0">202</h6>
@@ -825,7 +843,7 @@
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
                               <small class="text-muted d-block mb-1">6th</small>
-                              <h6 class="mb-0 fw-semibold ">고양이 사료</h6>
+                              <h6 class="mb-0  ">고양이 사료</h6>
                             </div>
                             <div class="user-progress d-flex align-items-center gap-1">
                               <h6 class="mb-0">122</h6>
@@ -873,12 +891,12 @@
                       </div>
                       <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                           <div class="me-2">
-                              <h6 class="mb-0 fw-semibold">${row[0]}</h6>
+                              <h6 class="mb-0 ">${row[0]}</h6>
                               <small class="text-muted">Count: ${row[1]}</small>
                               <small class="text-muted">Total: ${row[2]}</small>
                           </div>
                           <div class="user-progress">
-                              <small class="fw-semibold">${row[1]}</small>
+                              <small class="">${row[1]}</small>
                           </div>
                       </div>
                   `;
