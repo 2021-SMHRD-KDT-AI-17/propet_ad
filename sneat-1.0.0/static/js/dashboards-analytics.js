@@ -379,7 +379,7 @@ fetch("/static/js/questions.json")
   const profileReportChartEl = document.querySelector('#profileReportChart'),
     profileReportChartConfig = {
       chart: {
-        height: 80,
+        height: 128,
         // width: 175,
         type: 'line',
         toolbar: {

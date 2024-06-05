@@ -76,7 +76,7 @@ def get_top_pets():
             FROM pet
             GROUP BY p_kind
             ORDER BY kind_count DESC
-            LIMIT 5;
+            LIMIT 3;
             """
             cursor.execute(sql)
             rows = cursor.fetchall()

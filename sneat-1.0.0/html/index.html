@@ -627,62 +627,85 @@
                   </div>
                 </div>
                 
-                <!--/ Order Statistics -->
+                 <!--/ Order Statistics -->
                 
-        
-        <div class="col-md-6 col-lg-4 order-1 mb-4">
-            <div class="card h-100">
-                <div class="card-header d-flex align-items-center justify-content-between pb-0">
-                    <div class="card-title mb-0">
-                        <h5 class="m-0 me-2 fw-semibold">등록된 강아지</h5>
-                        <small class="text-muted"><span>{{ data[0][2] }}</span> Total Users</small>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn p-0" type="button" id="orderStatistics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="bx bx-dots-vertical-rounded"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orderStatistics">
-                            <a class="dropdown-item" href="javascript:void(0);">Select All</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Share</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <div class="d-flex flex-column align-items-center gap-1">
-                          <h2 class="mb-2">{{ data[0][2] }}</h2> <!-- 전체 count 값을 표시 -->
-                            
-                            <span>Total Dogs</span>
-                        </div>
-                        <div id="orderStatisticsChart"></div>
-                    </div>
-                    <ul class="p-0 m-0">
-                      {% for row in data %}
-                        <li class="d-flex mb-4 pb-1">
-                            <div class="avatar flex-shrink-0 me-3">
-                                <span class="avatar-initial rounded bg-label-primary">
-                                    <i class="ti ti-number-{{ loop.index }}"></i>
-                                </span>
-                            </div>
-                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="me-2">
-                                    <h6 class="mb-0 fw-semibold">{{ row[0] }}</h6>
-                                    <small class="text-muted">{{ row[0] }}</small>
-                                </div>
-                                <div class="user-progress">
-                                    <small class="fw-semibold">{{ row[1] }}</small>
-                                </div>
-                            </div>
-                        </li>
-                        {% endfor %}
+                <div class="col-md-6 col-lg-4 order-1 mb-4">
+                  <div class="card h-100">
+                      <div class="card-header d-flex align-items-center justify-content-between pb-0">
+                          <div class="card-title mb-0">
+                              <h5 class="m-0 me-2 fw-semibold">등록된 강아지</h5>
+                              <small class="text-muted"><span>{{ data[0][2] }}</span> Total Users</small>
+                          </div>
+                          <div class="dropdown">
+                              <button class="btn p-0" type="button" id="orderStatistics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orderStatistics">
+                                  <a class="dropdown-item" href="javascript:void(0);">Select All</a>
+                                  <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+                                  <a class="dropdown-item" href="javascript:void(0);">Share</a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="card-body">
+                          <div class="d-flex justify-content-between align-items-center mb-3">
+                              <div class="d-flex flex-column align-items-center gap-1">
+                                <h2 class="mb-2">{{ data[0][2] }}</h2> <!-- 전체 count 값을 표시 -->
 
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                
-                <!--/ Expense Overview -->
+                                  <span>Total Dogs</span>
+                              </div>
+                              <div id="orderStatisticsChart"></div>
+                          </div>
+                          <ul class="p-0 m-0"></ul>
+                          {%for row in data%}
+                          
+                              <li class="d-flex mb-4 pb-1">
+                                  <div class="avatar flex-shrink-0 me-3">
+                                      <span class="avatar-initial rounded bg-label-primary">
+                                          <i class="ti ti-number-{{ loop.index }}"></i>
+                                      </span>
+                                  </div>
+                                  
+                                  <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                      <div class="me-2">
+                                          <h6 class="mb-0 fw-semibold">{{ row[0] }}</h6>
+                                          <small class="text-muted">{{ row[0] }}</small>
+                                      </div>
+                                      <div class="user-progress">
+                                          <small class="fw-semibold">{{ row[1] }}</small>
+                                      </div>
+                                  </div>
+                              </li>
+                              {% endfor %}
+                          
+                              {% set ns = namespace(etc=16) %}
+                              {%for row in data%}
+                                {% set ns.etc = ns.etc - row[1] %}
+                              {% endfor %}
+                              
+                              <li class="d-flex mb-4 pb-1">
+                                <div class="avatar flex-shrink-0 me-3">
+                                    <span class="avatar-initial rounded bg-label-primary">
+                                      
+                                        <i class="ti ti-number-4"></i>
+                                    </span>
+                                </div>
+                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                    <div class="me-2">
+                                        <h6 class="mb-0 fw-semibold">etc</h6>
+                                        <small class="text-muted">낙타, 시바견...</small>
+                                    </div>
+                                    <div class="user-progress">
+                                        <small class="fw-semibold">{{ ns.etc }}</small>
+                                    </div>
+                                </div>
+                            </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+              
+              <!--/ Expense Overview -->
 
                 <!-- Transactions -->
                 <div class="col-md-6 col-lg-4 order-2 mb-4">
