@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-  <title>User Information List | Admin Template</title>
+  <title>유저 페이지 - 유저 목록</title>
   <meta name="description" content="" />
 
   <!-- Favicon -->
@@ -36,6 +36,20 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
   
   <style>
+     body {
+        font-family: 'Omyu', sans-serif;
+        font-size: 18px; /* 기본 폰트 사이즈를 설정합니다 */
+      }
+    
+      h4, h5{
+        font-size: 25px; /* 필요한 경우 다른 요소의 폰트 사이즈를 설정할 수 있습니다 */
+      }
+      p, label, div, a, button, table, td, h1, h2, h3, h6{
+        font-size: 20px;
+      }
+      span{
+        font-size: 20px;
+      }
     .pagination {
       display: flex;
       justify-content: center;
@@ -59,7 +73,7 @@
   </style>
 </head>
 
-<body>
+<body class="Omyu">
   <!-- Layout wrapper -->
   <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
@@ -78,29 +92,29 @@
           <li class="menu-item">
             <a href="{{ url_for('index') }}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-home-circle"></i>
-              <div data-i18n="Analytics">Dashboard</div>
+              <div data-i18n="Analytics">대시보드</div>
             </a>
           </li>
 
           <!-- management -->
           <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Management</span>
+            <span class="menu-header-text">관리</span>
           </li>
           <li class="menu-item">
             <a href="{{ url_for('basic') }}" class="menu-link">
               <i class="menu-icon tf-icons ti ti-list-check"></i>
-              <div data-i18n="Basic">Questions table</div>
+              <div data-i18n="Basic">질문 리스트</div>
             </a>
           </li>
           <li class="menu-item active open">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
               <i class="menu-icon tf-icons bx bx-dock-top"></i>
-              <div data-i18n="Account Settings">User Page</div>
+              <div data-i18n="Account Settings">유저 페이지</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item active">
                     <a href="{{ url_for('user_list') }}" class="menu-link">
-                      <div data-i18n="Basic">User list</div>
+                      <div data-i18n="Basic">유저 목록</div>
                     </a>
                 </li>
             </ul>
@@ -108,28 +122,28 @@
           <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
               <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-              <div data-i18n="Account Settings">Manager Page</div>
+              <div data-i18n="Account Settings">관리자 페이지</div>
             </a>
             <ul class="menu-sub">
               <li class="menu-item">
                 <a href="{{ url_for('account') }}" class="menu-link">
-                  <div data-i18n="Account">Account</div>
+                  <div data-i18n="Account">계정</div>
                 </a>
               </li>
               <li class="menu-item">
                 <a href="{{ url_for('notifications') }}" class="menu-link">
-                  <div data-i18n="Notifications">Notifications</div>
+                  <div data-i18n="Notifications">알림</div>
                 </a>
               </li>
             </ul>
           </li>
           <!-- Components -->
-          <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
+          <li class="menu-header small text-uppercase"><span class="menu-header-text">계정</span></li>
           <!-- Cards -->
           <li class="menu-item">
             <a href="{{ url_for('login') }}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-log-out-circle"></i>
-              <div data-i18n="Basic">Logout</div>
+              <div data-i18n="Basic">로그아웃</div>
             </a>
           </li>
       </aside>
@@ -141,25 +155,25 @@
         <div class="content-wrapper">
           <!-- Content -->
           <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-2">User Information List</h4>
+            <h4 class="py-3 mb-2">유저 정보 리스트</h4>
 
             <hr class="my-4" />
 
             <div class="card">
-                <h5 class="card-header">User Details</h5>
+                <h5 class="card-header">유저 정보 리스트 상세</h5>
                 <div class="table-responsive text-nowrap">
                   <table class="table">
                     <thead>
                       <tr>
-                        <th class="id">ID</th>
-                        <th class="username">Username</th>
-                        <th class="phone">Phone Number</th>
-                        <th class="status">Pet Status</th>
+                        <th class="id" style="font-size: 18px;">유저 ID</th>
+                        <th class="username" style="font-size: 18px;">이름</th>
+                        <th class="phone" style="font-size: 18px;">전화번호</th>
+                        <th class="status" style="font-size: 18px;">펫 등록 상태</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
 
-                      {% for user in users[:15] %}
+                      {% for user in users[:12] %}
                       <tr>
                         <td class="id">{{ user[0]}}</td>
                         <td class="username">{{ user[1]}}</td>

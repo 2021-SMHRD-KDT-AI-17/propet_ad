@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>관리자 대시보드</title>
 
     <meta name="description" content="" />
     <!-- Favicon -->
@@ -377,8 +377,217 @@
                 </div>
               </div>
               <div class="row">
-                <!-- Order Statistics -->
+                <!-- 상품 카테고리 -->
                 <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
+                  <div class="card h-100">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                      <h5 class="card-title m-0 me-2 ">질문 카테고리 순위</h5>
+                      <div class="dropdown">
+                        <button
+                          class="btn p-0"
+                          type="button"
+                          id="transactionID"
+                          data-bs-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          <i class="bx bx-dots-vertical-rounded"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
+                          <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
+                          <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
+                          <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <ul class="p-0 m-0">
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <span class="avatar-initial rounded bg-label-primary"
+                              ><i class="ti ti-square-rounded-chevron-up"></i
+                            ></span>
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">1st</small>
+                              <h6 class="mb-0 ">강아지 사료</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">521</h6>
+                              <span class="text-muted">번 검색</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <span class="avatar-initial rounded bg-label-info"
+                              ><i class="ti ti-square-rounded-chevron-up"></i
+                            ></span>
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">2nd</small>
+                              <h6 class="mb-0 ">예방 접종</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">401</h6>
+                              <span class="text-muted">번 검색</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <span class="avatar-initial rounded bg-label-success"
+                              ><i class="ti ti-square-rounded-chevron-up"></i></span>
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">3rd</small>
+                              <h6 class="mb-0 ">털빠짐</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">358</h6>
+                              <span class="text-muted">번 검색</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <span class="avatar-initial rounded bg-label-secondary"
+                              ><i class="ti ti-square-rounded-minus"></i
+                            ></span>
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">4th</small>
+                              <h6 class="mb-0 ">영양제 추천</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">331</h6>
+                              <span class="text-muted">번 검색</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <span class="avatar-initial rounded bg-label-secondary"
+                              ><i class="ti ti-square-rounded-minus"></i
+                            ></span>
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">5th</small>
+                              <h6 class="mb-0 ">배변 교육</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">202</h6>
+                              <span class="text-muted">번 검색</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <span class="avatar-initial rounded bg-label-secondary"
+                              ><i class="ti ti-square-rounded-minus"></i
+                            ></span>
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">6th</small>
+                              <h6 class="mb-0  ">고양이 사료</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">122</h6>
+                              <span class="text-muted">번 검색</span>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                 <!--/ 상품 카테고리 -->
+                
+                <div class="col-md-6 col-lg-4 order-1 mb-4">
+                  <div class="card h-100">
+                      <div class="card-header d-flex align-items-center justify-content-between pb-0">
+                          <div class="card-title mb-0">
+                              <h5 class="m-0 me-2 ">등록된 강아지</h5>
+                              <small class="text-muted"><span>{{ data[0][2] }}</span>명의 유저</small>
+                          </div>
+                          <div class="dropdown">
+                              <button class="btn p-0" type="button" id="orderStatistics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orderStatistics">
+                                  <a class="dropdown-item" href="javascript:void(0);">Select All</a>
+                                  <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+                                  <a class="dropdown-item" href="javascript:void(0);">Share</a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="card-body">
+                          <div class="d-flex justify-content-between align-items-center mb-3">
+                              <div class="d-flex flex-column align-items-center gap-1">
+                                <h2 class="mb-2" style="font-size: 30px;">{{ data[0][2] }}</h2> <!-- 전체 count 값을 표시 -->
+
+                                  <span>총 반려견</span>
+                              </div>
+                              <div id="orderStatisticsChart"></div>
+                          </div>
+                          <ul class="p-0 m-0"></ul>
+                          {%for row in data%}
+                          
+                              <li class="d-flex mb-4 pb-1">
+                                  <div class="avatar flex-shrink-0 me-3">
+                                      <span class="avatar-initial rounded bg-label-primary">
+                                          <i class="ti ti-number-{{ loop.index }}"></i>
+                                      </span>
+                                  </div>
+                                  
+                                  <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                      <div class="me-2">
+                                          <h6 class="mb-0 ">{{ row[0] }}</h6>
+                                          <small class="text-muted">{{ row[0] }}</small>
+                                      </div>
+                                      <div class="user-progress">
+                                          <small class="">{{ row[1] }}</small>
+                                      </div>
+                                  </div>
+                              </li>
+                              {% endfor %}
+                          
+                              {% set ns = namespace(etc=16) %}
+                              {%for row in data%}
+                                {% set ns.etc = ns.etc - row[1] %}
+                              {% endfor %}
+                              
+                              <li class="d-flex mb-0 pb-1">
+                                <div class="avatar flex-shrink-0 me-3">
+                                    <span class="avatar-initial rounded bg-label-primary">
+                                      
+                                        <i class="ti ti-number-4"></i>
+                                    </span>
+                                </div>
+                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                    <div class="me-2 mb-0">
+                                        <h6 class="mb-0 ">etc</h6>
+                                        <small class="text-muted">낙타, 시바견...</small>
+                                    </div>
+                                    <div class="user-progress">
+                                        <small class="">{{ ns.etc }}</small>
+                                    </div>
+                                </div>
+                            </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                <!-- 질문 카테고리 -->
+                <div class="col-md-6 col-lg-4 order-2 mb-4">
                   <div class="card h-100">
                     <div class="card-header">
                       <h5 class="card-title m-0 ">상품별 카테고리 순위</h5>
@@ -643,219 +852,9 @@
                       </div>
                     </div>
                   </div>
-                </div>
-                
-                 <!--/ Order Statistics -->
-                
-                <div class="col-md-6 col-lg-4 order-1 mb-4">
-                  <div class="card h-100">
-                      <div class="card-header d-flex align-items-center justify-content-between pb-0">
-                          <div class="card-title mb-0">
-                              <h5 class="m-0 me-2 ">등록된 강아지</h5>
-                              <small class="text-muted"><span>{{ data[0][2] }}</span>명의 유저</small>
-                          </div>
-                          <div class="dropdown">
-                              <button class="btn p-0" type="button" id="orderStatistics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orderStatistics">
-                                  <a class="dropdown-item" href="javascript:void(0);">Select All</a>
-                                  <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
-                                  <a class="dropdown-item" href="javascript:void(0);">Share</a>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="card-body">
-                          <div class="d-flex justify-content-between align-items-center mb-3">
-                              <div class="d-flex flex-column align-items-center gap-1">
-                                <h2 class="mb-2" style="font-size: 30px;">{{ data[0][2] }}</h2> <!-- 전체 count 값을 표시 -->
 
-                                  <span>총 반려견</span>
-                              </div>
-                              <div id="orderStatisticsChart"></div>
-                          </div>
-                          <ul class="p-0 m-0"></ul>
-                          {%for row in data%}
-                          
-                              <li class="d-flex mb-4 pb-1">
-                                  <div class="avatar flex-shrink-0 me-3">
-                                      <span class="avatar-initial rounded bg-label-primary">
-                                          <i class="ti ti-number-{{ loop.index }}"></i>
-                                      </span>
-                                  </div>
-                                  
-                                  <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                      <div class="me-2">
-                                          <h6 class="mb-0 ">{{ row[0] }}</h6>
-                                          <small class="text-muted">{{ row[0] }}</small>
-                                      </div>
-                                      <div class="user-progress">
-                                          <small class="">{{ row[1] }}</small>
-                                      </div>
-                                  </div>
-                              </li>
-                              {% endfor %}
-                          
-                              {% set ns = namespace(etc=16) %}
-                              {%for row in data%}
-                                {% set ns.etc = ns.etc - row[1] %}
-                              {% endfor %}
-                              
-                              <li class="d-flex mb-0 pb-1">
-                                <div class="avatar flex-shrink-0 me-3">
-                                    <span class="avatar-initial rounded bg-label-primary">
-                                      
-                                        <i class="ti ti-number-4"></i>
-                                    </span>
-                                </div>
-                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                    <div class="me-2 mb-0">
-                                        <h6 class="mb-0 ">etc</h6>
-                                        <small class="text-muted">낙타, 시바견...</small>
-                                    </div>
-                                    <div class="user-progress">
-                                        <small class="">{{ ns.etc }}</small>
-                                    </div>
-                                </div>
-                            </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-              
-              <!--/ Expense Overview -->
-
-                <!-- Transactions -->
-                <div class="col-md-6 col-lg-4 order-2 mb-4">
-                  <div class="card h-100">
-                    <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="card-title m-0 me-2 ">질문 카테고리 순위</h5>
-                      <div class="dropdown">
-                        <button
-                          class="btn p-0"
-                          type="button"
-                          id="transactionID"
-                          data-bs-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          <i class="bx bx-dots-vertical-rounded"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
-                          <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <ul class="p-0 m-0">
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-primary"
-                              ><i class="ti ti-square-rounded-chevron-up"></i
-                            ></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <small class="text-muted d-block mb-1">1st</small>
-                              <h6 class="mb-0 ">강아지 사료</h6>
-                            </div>
-                            <div class="user-progress d-flex align-items-center gap-1">
-                              <h6 class="mb-0">521</h6>
-                              <span class="text-muted">번 검색</span>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-info"
-                              ><i class="ti ti-square-rounded-chevron-up"></i
-                            ></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <small class="text-muted d-block mb-1">2nd</small>
-                              <h6 class="mb-0 ">예방 접종</h6>
-                            </div>
-                            <div class="user-progress d-flex align-items-center gap-1">
-                              <h6 class="mb-0">401</h6>
-                              <span class="text-muted">번 검색</span>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-success"
-                              ><i class="ti ti-square-rounded-chevron-up"></i></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <small class="text-muted d-block mb-1">3rd</small>
-                              <h6 class="mb-0 ">털빠짐</h6>
-                            </div>
-                            <div class="user-progress d-flex align-items-center gap-1">
-                              <h6 class="mb-0">358</h6>
-                              <span class="text-muted">번 검색</span>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-secondary"
-                              ><i class="ti ti-square-rounded-minus"></i
-                            ></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <small class="text-muted d-block mb-1">4th</small>
-                              <h6 class="mb-0 ">영양제 추천</h6>
-                            </div>
-                            <div class="user-progress d-flex align-items-center gap-1">
-                              <h6 class="mb-0">331</h6>
-                              <span class="text-muted">번 검색</span>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-secondary"
-                              ><i class="ti ti-square-rounded-minus"></i
-                            ></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <small class="text-muted d-block mb-1">5th</small>
-                              <h6 class="mb-0 ">배변 교육</h6>
-                            </div>
-                            <div class="user-progress d-flex align-items-center gap-1">
-                              <h6 class="mb-0">202</h6>
-                              <span class="text-muted">번 검색</span>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-secondary"
-                              ><i class="ti ti-square-rounded-minus"></i
-                            ></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <small class="text-muted d-block mb-1">6th</small>
-                              <h6 class="mb-0  ">고양이 사료</h6>
-                            </div>
-                            <div class="user-progress d-flex align-items-center gap-1">
-                              <h6 class="mb-0">122</h6>
-                              <span class="text-muted">번 검색</span>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
-                <!--/ Transactions -->
+                <!--/ 질문 카테고리 -->
               </div>
             </div>
             <!-- / Content -->
